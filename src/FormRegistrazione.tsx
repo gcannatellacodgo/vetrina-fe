@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './FormRegistrazione.css';
+import MyButton from "./Componenti/MyButton";
 
-function FormRegistrazione() {
+
+export default function FormRegistrazione() {
     const [formData, setFormData] = useState({
-        username: '',
+        nome: '',
+        cognome: '',
         email: '',
-        password: ''
+        cellulare: ''
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e:any) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -16,36 +19,46 @@ function FormRegistrazione() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:any) => {
         e.preventDefault();
         console.log(formData);
     };
 
     return (
         <div className="registration-form">
-            <h2>Registrazione</h2>
+            <h2>Registrati</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="username">Nome utente:</label>
-                    <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
+                    <label htmlFor="nome">Nome:</label>
+                    <input type="text" id="nome" name="Nome" value={formData.nome} onChange={handleChange}
+                           required/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="cognome">Cognome:</label>
+                    <input type="text" id="cognome" name="Cognome" value={formData.cognome} onChange={handleChange}
+                           required/>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                    <input type="email" id="email" name="Email" value={formData.email} onChange={handleChange}
+                           required/>
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                    <label htmlFor="cellulare">Cellulare:</label>
+                    <input type="text" id="cellulare" name="Cellulare" value={formData.cellulare} onChange={handleChange}
+                           required/>
                 </div>
 
-                <div className="form-group">
-                    <button type="submit">REGISTRATI</button>
-                </div>
+                <MyButton myOnClick={() => {
+                    const setProvaButton = (bottone3: string) => {
+
+                    };
+                    setProvaButton("bottone 3")
+                }}  testoBottone={'REGISTRATI'}/>
             </form>
-        </div>
-    );
+        </div>)
 }
 
-export default FormRegistrazione;
