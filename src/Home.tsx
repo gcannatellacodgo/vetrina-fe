@@ -101,7 +101,7 @@ export default function Home(){
                 <Carousel.Slide>
                     <div className={"rounded-lg p-2 "}>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
-                            <p>€239,80</p>
+                            <p>€239,80 </p>
                         </div>
                         <img src={gameboy} className="w-full mb-3"/>
                         <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
