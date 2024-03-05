@@ -3,8 +3,12 @@ import '@mantine/carousel/styles.css';
 import {Carousel} from "@mantine/carousel";
 import ps5Slim from './immagini/ps5_slim.jpg'
 import gameboy from './immagini/gameboy.jpg'
-import { Card, Image, Text } from '@mantine/core';
+import {PasswordInput} from "@mantine/core";
+
+
 export default function Home(){
+
+
 
     return(
         <div>
@@ -33,85 +37,83 @@ export default function Home(){
                 slidesToScroll={3}
             >
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80</p>
                         </div>
                         <img src={gameboy} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0  w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Gameboy</p>
                         </div>
                     </div>
                 </Carousel.Slide>
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80</p>
                         </div>
                         <img src={ps5Slim} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0  w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Playstation 5 console slim</p>
                         </div>
                     </div>
                 </Carousel.Slide>
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80</p>
                         </div>
                         <img src={gameboy} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0  w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Gameboy</p>
                         </div>
                     </div>
                 </Carousel.Slide>
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80</p>
                         </div>
                         <img src={ps5Slim} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0 w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Playstation 5 console slim</p>
                         </div>
                     </div>
                 </Carousel.Slide>
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80</p>
                         </div>
                         <img src={gameboy} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0  w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Gameboy</p>
                         </div>
                     </div>
                 </Carousel.Slide>
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80</p>
                         </div>
                         <img src={ps5Slim} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0  w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Playstation 5 console slim</p>
                         </div>
                     </div>
                 </Carousel.Slide>
                 <Carousel.Slide>
-                    <div className={"rounded-lg p-2 "}>
+                    <div>
                         <div className="absolute top-2 left-2 bg-gray-300 text-black px-2 py-1 ">
                             <p>€239,80 </p>
                         </div>
                         <img src={gameboy} className="w-full mb-3"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-white px-4 py-2">
+                        <div className="absolute bottom-0  w-full bg-white px-4 py-2">
                             <p className="text-black font-semibold">Gameboy</p>
                         </div>
                     </div>
                 </Carousel.Slide>
-
             </Carousel>
-
 
         </div>
     );
