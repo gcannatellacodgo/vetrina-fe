@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import './LogIn.css';
-import passwordicon from './Icon/icon-eye.gif'
+import passwordicon from './Icon/icon-pass.png'
+import {PasswordInput} from "@mantine/core";
+import {Eye, Icons, IconsOff} from 'tabler-icons-react';
+import { EyeOff } from 'tabler-icons-react';
+import { Activity } from 'tabler-icons-react';
+
 
 
 export default function LogIn() {
@@ -9,7 +14,7 @@ export default function LogIn() {
         password: '',
         rememberMe: false
     });
-
+    const [value, setValue] = useState('');
 
     const handleChange = (e:any) => {
         const {name, value, type, checked} = e.target;
@@ -36,10 +41,22 @@ export default function LogIn() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="password">Inserisci la tua password:</label>
-                    <div className="password-input-container">
-                        <input type="password" id="password" name="Password" value={formData.password} onChange={handleChange} required style={{ backgroundImage: `url(${passwordicon})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right', backgroundSize: '20px 20px', paddingLeft: '30px' }} />
-                    </div>
+                    <PasswordInput
+                        variant="filled"
+                        label="Inserisci la tua password:"
+                        styles={{innerInput: {backgroundColor: "#cccccc"}}}
+
+                        visibilityToggleIcon={({ reveal }) =>
+                            reveal ? (
+                                <EyeOff style={{ width: 'var(--psi-icon-size)', height: 'var(--psi-icon-size)'}} />
+                            ) : (
+                                <Eye style={{ width: 'var(--psi-icon-size)', height: 'var(--psi-icon-size)' }} />
+                            )
+                        }
+
+                    />
+
+
                     <div className="additional-options">
                         <input type="checkbox" id="rememberMe" name="rememberMe" checked={formData.rememberMe} onChange={handleChange} />
                         <label htmlFor="rememberMe" className="checkbox-label">Resta connesso</label>

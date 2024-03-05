@@ -5,13 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import FormRegistrazione from "./FormRegistrazione";
 import LogIn from "./LogIn";
+import {MantineProvider} from "@mantine/core";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App/>
+      <MantineProvider>
+          <App/>
+      </MantineProvider>
   </React.StrictMode>
 );
 
