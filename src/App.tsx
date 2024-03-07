@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavbarHome from "./componenti/NavbarHome";
+import MenuTab from "./componenti/MenuTab";
+import HomepageRoute from "./componenti/HomepageRoute";
+import {ItemMenuTabModel} from "./models/ItemMenuTabModel";
+export default function App() {
 
-function App() {
+  var listMenu: ItemMenuTabModel [] = []
+  listMenu.push({title:'HOME', path: '/'})
+  listMenu.push({title:'PRODOTTI', path: '/prodotti'})
+  listMenu.push({title:'OFFERTE', path: '/offerte'})
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className={'w-full h-screen bg-white'}>
+        <NavbarHome/>
+        {window.location.pathname === '/prodotti' ? null : <MenuTab list={listMenu}/>}
+        <HomepageRoute/>
+      </div>
+
   );
 }
 
-export default App;
+
