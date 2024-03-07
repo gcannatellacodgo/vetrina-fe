@@ -3,12 +3,12 @@ import '@mantine/carousel/styles.css';
 import {Carousel} from "@mantine/carousel";
 import ps5Slim from './immagini/ps5_slim.jpg'
 import gameboy from './immagini/gameboy.jpg'
-import {PasswordInput} from "@mantine/core";
+
 
 
 export default function Home(){
 
-
+var navigate = useNavigate()
 
     return(
         <div>
@@ -21,7 +21,12 @@ export default function Home(){
                 <p className={"font-semibold"}> In evidenza</p>
 
                 <div>
-                    <p className={"text-sky-400 hover:text-red-800 font-semibold"}>Visualizza tutti i prodotti</p>
+
+                    <p className={"text-sky-400 hover:text-red-800 font-semibold"}  onClick={()=>{
+                        navigate("/prodotti")
+                    }}>Visualizza tutti i prodotti
+
+                    </p>
                 </div>
 
             </div>
@@ -114,6 +119,7 @@ export default function Home(){
                     </div>
                 </Carousel.Slide>
             </Carousel>
+
 
         </div>
     );
