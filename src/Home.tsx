@@ -34,7 +34,7 @@ var navigate = useNavigate()
 
             <Carousel
                 withIndicators
-                height={200}
+                height={400}
                 slideSize="33.333333%"
                 slideGap="md"
                 loop
@@ -120,7 +120,7 @@ var navigate = useNavigate()
                 </Carousel.Slide>
             </Carousel>
 
+            </div>
 
-        </div>
     );
 }

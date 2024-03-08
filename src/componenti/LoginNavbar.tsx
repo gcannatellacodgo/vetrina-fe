@@ -34,10 +34,10 @@ export default function LoginNavbar(){
                             }}>Accedi</p>
                         </Button>
 
+                        <p>Non sei ancora iscritto? </p>
                         <p onClick={() => {
                             navigate("/registrazione")
-                        }}>Non sei ancora iscritto? </p>
-                        <p className={'cursor-pointer underline'}> Iscriviti qui </p>
+                        }} className={'cursor-pointer underline'}> Iscriviti qui </p>
                     </div>
 
                 </Popover.Dropdown>
