@@ -1,9 +1,9 @@
-import copertina from './immagini/ps5.jpg'
+import copertina from './images/ps5.jpg'
 import '@mantine/carousel/styles.css';
 import {Carousel} from "@mantine/carousel";
-import ps5Slim from './immagini/ps5_slim.jpg'
-import gameboy from './immagini/gameboy.jpg'
-
+import ps5Slim from './images/ps5_slim.jpg'
+import gameboy from './images/gameboy.jpg'
+import {useNavigate} from "react-router-dom";
 
 
 export default function Home(){
