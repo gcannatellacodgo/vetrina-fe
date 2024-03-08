@@ -15,7 +15,16 @@ export default function HomepageRoute(){
             element: <Offerte/>,
             children: []
         },
-       
+        {
+            path: '/registrazione',
+            element: <FormRegistrazione/>,
+            children: []
+        },
+        {
+            path: '/login',
+            element: <LogIn/>,
+            children: []
+        },
 
 
         {

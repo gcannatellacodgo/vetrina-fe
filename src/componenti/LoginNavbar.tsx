@@ -29,10 +29,14 @@ export default function LoginNavbar(){
                                 onClick={() => {
                                 }}
                                 styles={{root: {borderRadius: '10px', width: '250px'}}}>
-                            <p onClick={() => {}}>Accedi</p>
+                            <p onClick={() => {
+                                navigate("/login")
+                            }}>Accedi</p>
                         </Button>
 
-                        <p>Non sei ancora iscritto? </p>
+                        <p onClick={() => {
+                            navigate("/registrazione")
+                        }}>Non sei ancora iscritto? </p>
                         <p className={'cursor-pointer underline'}> Iscriviti qui </p>
                     </div>
 
