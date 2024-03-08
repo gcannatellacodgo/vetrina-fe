@@ -10,7 +10,7 @@ export default function InputSearch(){
 
     function getProdotti(ricerca:string){
         if(ricerca === ''){
-            fetch(`http://localhost:8080/`,{
+            fetch(`http://localhost:8080/prodottiVetrina/visualizzaProdotti`,{
                 method:'GET'
             }).then(async (response)=>{
                 if (response.status === 200){
@@ -20,7 +20,7 @@ export default function InputSearch(){
                 }
             })
         }else {
-            fetch(`http://localhost:8080/RubricaDB/leggi?parametroRicerca=`+ ricerca,{
+            fetch(`http://localhost:8080/prodottiVetrina/visualizzaProdotti?parametroRicerca=`+ ricerca,{
                 method:'GET'
             }).then(async (response)=>{
                 if (response.status === 200){

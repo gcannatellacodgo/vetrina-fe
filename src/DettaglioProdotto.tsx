@@ -1,36 +1,40 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Divider, PasswordInput} from "@mantine/core";
 import {BodyProdotto} from "./models/BodyProdotto";
 
 
 export default function DettaglioProdotto(){
+
+    const[immagine, setImmagine]= useState('')
     const [prodotto, setProdotto] = useState<BodyProdotto>({
         codice: "",
         descrizione: "",
-        modello: "",
+        modello: localStorage.getItem('modello')!,
         prezzo: 0,
         titolo: "",
-        blobImg: [
-            { id: 0, image: "" },
-            { id: 0, image: "" },
-            { id: 0, image: "" },
-            { id: 0, image: "" }
-        ]
+        blobImg: []
     })
 
 
-    const[immagine, setImmagine]= useState(prodotto.blobImg[0].image)
+    useEffect(()=>{
+        getProductDetails()
+    }, [])
+    useEffect(() => {
+        if (prodotto.blobImg.length>0) {
+            setImmagine(prodotto.blobImg[0].image)
+        }
+    }, [prodotto]);
     // localStorage.setItem('modello', '')
     // var modello = localStorage.getItem('modello')
 
     function getProductDetails(){
 
-        fetch(`http://localhost:8080/`,{
+        fetch(`http://192.168.1.126:8080/prodotti/${prodotto.modello}`,{
             method:'GET'
         }).then(async (response)=>{
             if (response.status === 200){
                 var bodyJson = await response.json()
-                setProdotto(bodyJson.oggettoRitorno)
+                setProdotto(bodyJson)
             }
         })
     }
@@ -39,19 +43,19 @@ export default function DettaglioProdotto(){
         <div>
             <div className={'w-full flex  p-10'}>
                 <div className={'w-48 h-20 flex-col'}>
-                    {prodotto.blobImg.map((item) => (
+                    {prodotto.blobImg.length >0?prodotto.blobImg.map((item) => (
                         <img className={'w-16 h-16 rounded-md cursor-pointer border-2 border-black  mt-4 mb-5 hover:border-orange-600'}
                              key={item.id}
-                             src={item.image}
+                             src={'data:image/jpeg;base64, ' +item.image}
                              alt={prodotto.titolo}
                              onClick={() => {
                                  setImmagine(item.image)
                              }}/>
-                    ))}
+                    )):null}
                 </div>
 
                 <div>
-                    <img className={'w-[330px] h-[330px]'} src={immagine}/>
+                    <img className={'w-[330px] h-[330px]'} src={'data:image/jpeg;base64, ' +immagine}/>
                 </div>
                 <div>
                     <div className={'w[400px] h-80 flex-col px-5'}>

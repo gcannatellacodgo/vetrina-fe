@@ -1,6 +1,6 @@
 export interface BodyProdotti{
 
-    titolo: string,
+    modello: string,
     descrizione: string,
     prezzo: number
 

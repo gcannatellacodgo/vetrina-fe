@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LogIn.css';
+import {Buffer} from 'buffer'
 import passwordicon from './images/icon-pass.png'
 import {PasswordInput, rem, TextInput} from "@mantine/core";
 import passoff from './images/eye-off.png';
@@ -16,13 +17,8 @@ const LogIn = () => {
     });
     const [passsowrdVisible, setPasswordVisible] = useState(false);
 
-    const handleSubmit = (e:any) => {
-        e.preventDefault();
-        console.log(formData);
-    };
+    const [checked, setChecked] = useState(false);
 
-    const MyButton = (props: { myOnClick: () => void; testoBottone: string }) => {
-        const [checked, setChecked] = useState(false);
 
 
         return (
@@ -31,6 +27,9 @@ const LogIn = () => {
                 <TextInput
                     label="Inserisci la tua email:"
                     variant="filled"
+                    onChange={(event)=>{
+                        setFormData({...formData, email: event.currentTarget.value})
+                    }}
                     styles={{ input: { backgroundColor: "#cccccc", width: '320px', padding: '20px', borderRadius: '10px' } }}
                 />
 
@@ -40,10 +39,12 @@ const LogIn = () => {
                     label="Inserisci la tua password:"
                     visible={passsowrdVisible}
                     onChange={(txt) => {
+                        setFormData({...formData, password: txt.currentTarget.value})
                     }}
                     rightSection={<img className={'w-4'} src={passsowrdVisible ? passwordicon : passoff} onClick={() => {
                         setPasswordVisible(!passsowrdVisible)
-                    }} />}
+                    }}
+                    />}
                 />
 
                 <div>
@@ -56,18 +57,39 @@ const LogIn = () => {
                     </div>
 
                 </div>
-                <div onClick={props.myOnClick}>
+                <div onClick={()=>{
+
+                    var headers = new Headers()
+                    headers.append('Authorization', Buffer.from(`${formData.email}:${formData.password}`).toString('base64') )
+
+                    console.log(formData.password)
+                    console.log(formData.email)
+                    fetch(`http://192.168.1.126:8080/user`,{
+                        method:'GET',
+                        headers: headers
+                    }).then(async (response)=>{
+                        if (response.status === 200){
+                            console.log(response.status)
+                            response.headers.forEach(function(val, key) { console.log(key + ' -> ' + val); });
+                          alert(response.headers.get('message'))
+                        }
+                    })
+                }}>
                     <div
                         className={`w-auto h-12 bg-orange-700 min-w-20 mb-10  hover:opacity-100 rounded-2xl hover:scale-110 duration-500 cursor-pointer  flex flex-col items-center justify-center px-20`}
                         style={{ width: '320px', marginTop: '20px'}}>
-                        <p className={'text-sm font-mono text-white '}>{props.testoBottone}</p>
+                        <p className={'text-sm font-mono text-white '}>Accedi</p>
                     </div>
                 </div>
+
             </div>
+
+
         );
     }
 
-    return <MyButton myOnClick={() => {}} testoBottone="Accedi" />;
-}
+
+
+
 
 export default LogIn;
