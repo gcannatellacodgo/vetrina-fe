@@ -4,6 +4,8 @@ import Offerte from "../Offerte";
 import {Navigate, useRoutes} from "react-router-dom";
 import React from "react";
 import DettaglioProdotto from "../DettaglioProdotto";
+import FormRegistrazione from "../FormRegistrazione";
+import LogIn from "../LogIn";
 
 
 export default function HomepageRoute(){

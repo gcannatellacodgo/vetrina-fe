@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
-import NavbarHome from "./componenti/NavbarHome";
-import MenuTab from "./componenti/MenuTab";
-import HomepageRoute from "./componenti/HomepageRoute";
+import NavbarHome from "./Componenti/NavbarHome";
+import MenuTab from "./Componenti/MenuTab";
+import HomepageRoute from "./Componenti/HomepageRoute";
 import {ItemMenuTabModel} from "./models/ItemMenuTabModel";
 export default function App() {
 
