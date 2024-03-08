@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import FormRegistrazione from "./FormRegistrazione";
 import LogIn from "./LogIn";
 import {MantineProvider} from "@mantine/core";
-
+import '@mantine/core/styles.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

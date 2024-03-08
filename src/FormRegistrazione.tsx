@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import './FormRegistrazione.css';
+import './LogIn.css';
+import { Activity } from 'tabler-icons-react';
+import {Input, TextInput} from '@mantine/core';
 import MyButton from "./Componenti/MyButton";
-
+import colors from "tailwindcss/colors";
 
 export default function FormRegistrazione() {
     const [formData, setFormData] = useState({
@@ -11,54 +13,57 @@ export default function FormRegistrazione() {
         cellulare: ''
     });
 
-    const handleChange = (e:any) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
 
-    const handleSubmit = (e:any) => {
-        e.preventDefault();
-        console.log(formData);
-    };
 
-    return (
-        <div className="registration-form">
-            <h2>Registrati</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="nome">Nome:</label>
-                    <input type="text" id="nome" name="Nome" value={formData.nome} onChange={handleChange}
-                           required/>
+
+
+        return (
+            <div className="registration-form" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <h2 style={{fontSize:'24px'}}>Registrati</h2>
+                <TextInput
+                    key={1}
+                    label="Nome:"
+                    variant="filled"
+                    styles={{input: {backgroundColor: "#cccccc", width: '300px', padding: '20px', borderRadius: '10px'}}}
+                    defaultValue={formData.nome}
+                    onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                />
+
+
+                <TextInput
+                    label="Cognome:"
+                    variant="filled"
+                    styles={{input: {backgroundColor: "#cccccc", width: '300px', padding: '20px', borderRadius: '10px'}}}
+                    value={formData.cognome}
+                    onChange={(e) => setFormData({...formData, cognome: e.target.value})}
+                />
+
+                <TextInput
+                    label="Email:"
+                    variant="filled"
+                    styles={{input: {backgroundColor: "#cccccc", width: '300px', padding: '20px', borderRadius: '10px'}}}
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+
+                <TextInput
+                    label="Cellulare:"
+                    variant="filled"
+                    styles={{input: {backgroundColor: "#cccccc", width: '300px', padding: '20px', borderRadius: '10px'}}}
+                    value={formData.cellulare}
+                    onChange={(e) => setFormData({...formData, cellulare: e.target.value})}
+                />
+
+                <div onClick={()=>{
+
+                }}>
+                    <div
+                        className={`w-auto h-12 bg-orange-700 min-w-20 mb-10  hover:opacity-100 rounded-2xl hover:scale-110 duration-500 cursor-pointer  flex flex-col items-center justify-center px-20`}
+                        style={{ width: '300px', marginTop: '20px'}}>
+                        <p className={'text-sm font-mono text-white '}>Registrati</p>
+                    </div>
                 </div>
+            </div>
+        );
 
-                <div className="form-group">
-                    <label htmlFor="cognome">Cognome:</label>
-                    <input type="text" id="cognome" name="Cognome" value={formData.cognome} onChange={handleChange}
-                           required/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="Email" value={formData.email} onChange={handleChange}
-                           required/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="cellulare">Cellulare:</label>
-                    <input type="text" id="cellulare" name="Cellulare" value={formData.cellulare} onChange={handleChange}
-                           required/>
-                </div>
-
-                <MyButton myOnClick={() => {
-                    const setProvaButton = (bottone3: string) => {
-
-                    };
-                    setProvaButton("bottone 3")
-                }}  testoBottone={'REGISTRATI'}/>
-            </form>
-        </div>)
 }
-
