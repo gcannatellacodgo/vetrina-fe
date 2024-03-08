@@ -24,7 +24,7 @@ var navigate = useNavigate()
 
                     <p className={"text-sky-400 hover:text-red-800 font-semibold"}  onClick={()=>{
                         navigate("/prodotti")
-                    }}>Visualizza tutti i prodotti
+                    }}>Visualizza tutti i prodottiii
 
                     </p>
                 </div>
