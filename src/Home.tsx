@@ -9,6 +9,8 @@ import {Carousel} from "@mantine/carousel";
 
 export default function Home(){
 
+
+    
 var navigate = useNavigate()
 
     return(
