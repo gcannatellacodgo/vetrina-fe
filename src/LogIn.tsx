@@ -4,10 +4,7 @@ import {Buffer} from 'buffer'
 import passwordicon from './images/icon-pass.png'
 import {PasswordInput, rem, TextInput} from "@mantine/core";
 import passoff from './images/eye-off.png';
-import { Activity } from 'tabler-icons-react';
-import { Input } from '@mantine/core';
-import MyButton from "./Componenti/MyButton";
-import colors from "tailwindcss/colors";
+
 import { Checkbox } from '@mantine/core';
 
 const LogIn = () => {
